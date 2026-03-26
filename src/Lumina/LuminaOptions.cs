@@ -23,7 +23,7 @@ namespace Lumina
         /// <summary>
         /// The default language to fetch from Excel sheets. Can be overriden on a case-by-case basis but this serves as the default.
         /// </summary>
-        public Language DefaultExcelLanguage { get; set; } = Language.English;
+        public Language DefaultExcelLanguage { get; set; } = Language.Korean;
 
         /// <summary>
         /// Whether or not an exception should be thrown in the event that a sheet's column checksum no longer matches. This has no effect on sheets
