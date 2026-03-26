@@ -294,11 +294,11 @@ public class ExcelModule
 
         public RawExcelSheet GetRawSheet( Language language )
         {
-            // KR hack: just try Korean first
-            var entry = GetRawSheetCore( Language.Korean );
+            var entry = GetRawSheetCore( language );
             if( entry == null )
             {
-                entry = GetRawSheetCore( language );
+                // KR hack: just try Korean before giving up
+                entry = GetRawSheetCore( Language.Korean );
                 if( entry == null )
                 {
                     if( language == Language.None )
