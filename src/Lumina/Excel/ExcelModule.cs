@@ -298,16 +298,12 @@ public class ExcelModule
             if( entry == null )
             {
                 // KR hack: just try Korean before giving up
-                entry = GetRawSheetCore( Language.Korean );
-                if( entry == null )
+                if( language == Language.None )
+                    entry = GetRawSheetCore( Language.Korean ) ?? throw new UnsupportedLanguageException( nameof( language ), language, null );
+                else
                 {
-                    if( language == Language.None )
+                    entry = GetRawSheetCore( Language.None ) ?? GetRawSheetCore( Language.Korean ) ??
                         throw new UnsupportedLanguageException( nameof( language ), language, null );
-                    else
-                    {
-                        entry = GetRawSheetCore( Language.None ) ??
-                            throw new UnsupportedLanguageException( nameof( language ), language, null );
-                    }
                 }
             }
 
