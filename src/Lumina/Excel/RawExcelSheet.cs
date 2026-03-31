@@ -86,7 +86,7 @@ public class RawExcelSheet : IExcelSheet
         ArgumentNullException.ThrowIfNull( headerFile );
         ArgumentNullException.ThrowIfNull( name );
 
-        if( !headerFile.Languages.Contains( language ) )
+        if( language != Language.None && !headerFile.Languages.Contains( language ) )
             throw new UnsupportedLanguageException( nameof( language ), language, null );
 
         var hasSubrows = headerFile.Header.Variant == ExcelVariant.Subrows;
